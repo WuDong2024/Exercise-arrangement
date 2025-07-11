@@ -50,11 +50,11 @@ class EnhancedMistakeManager:
         self.update_chapter_dropdown()
 
     def load_fonts(self):
-        """加载免费商用字体以确保跨平台兼容性"""
+        """加载字体"""
         self.default_font = ("DejaVu Sans", 10)
         self.title_font = ("DejaVu Sans", 12, "bold")
 
-        # 尝试加载Noto Sans CJK字体（免费商用）
+        # 尝试加载Noto Sans CJK字体
         try:
             # 检查系统是否已安装Noto Sans CJK
             test_font = ImageFont.truetype("NotoSansCJK-Regular.ttc", 10)
@@ -358,7 +358,6 @@ class EnhancedMistakeManager:
         if os.path.exists(file_path):
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # 转换旧版本数据格式
                 for mistake in data:
                     if "images" not in mistake:
                         if "image" in mistake:
@@ -826,7 +825,6 @@ class EnhancedMistakeManager:
         
         开发：wudong_awa
         发布日期：2025年7月12日
-        开源许可证：
         """
         messagebox.showinfo("关于软件", about_text, parent=self.root)
 
